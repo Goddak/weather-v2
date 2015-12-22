@@ -1,0 +1,19 @@
+h1= title
+p Welcome to #{title}
+script(src='./javascripts/angular.min.js')
+  // This is actuall angularJS
+script(src='./javascripts/angular.js')
+  // This is my app 
+div(ng-app="weatherV2" ng-controller="weatherCtrl as weather")
+  h1 Get the current weather
+  form
+    input(type="text" ng-model="weather.location")
+    button(type="button" ng-click="weather.current()") Current Weather
+    button(type="button" ng-click="weather.forecast()") Weather Forecast
+  div(ng-show="weather.weather.now")
+    h2 Weather for {{weather.weather.now.data.name}}, {{weather.weather.now.data.sys.country}}
+    p currently: {{weather.weather.now.data.weather[0].description}}
+    p temp (kelvin): {{weather.weather.now.data.main.temp}}
+  div(ng-show="weather.weather.forecast")
+    h2 Weather for {{weather.forecast.data.city.name}}, {{weather.weather.forecast.data.city.country}}
+    
