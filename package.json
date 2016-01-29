@@ -1,10 +1,19 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.8"
-    , "stylus": ">= 0.0.1"
-    , "jade": ">= 0.0.1"
+  "name": "bedroom-server",
+  "version": "0.1.1",
+  "description": "A server to be run from my bedroom for local access and development.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run server & npm run nodecast",
+    "server": "node server.js",
+    "monserver": "nodemon --watch ./nodecast/*.* --exec 'node ./nodecast/server.js --name Goddaks_PC'",
+    "nodecast": "node ./nodecast/server.js --name Goddaks_PC"
+  },
+  "author": "Goddak",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.3",
+    "jade": "^1.11.0"
   }
 }

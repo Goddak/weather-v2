@@ -1,0 +1,18 @@
+html(ng-app="weatherApp" ng-controller="weatherCtrl as weather")
+  head
+    title!= title
+  body
+    div#heading 
+      h1!= title
+      p none pretty weather app to display use of AngularJS.
+    div#search
+      h2 Choose your location
+      form
+        input(type="text" name="weatherSearch" ng-model="weather.searchLocation")
+        button(type="button" ng-click="weather.request()") Search
+    div#report
+      report(ng-repeat="times in weather.weatherReport.data.list" weather="times")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.min.js")
+  script(src="../weather/js/weather.js")
+  
+  
